@@ -35,7 +35,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-5">
           {principles.map(([t, d]) => (
             <div key={t} className="card p-8 relative">
-              <div className="absolute top-6 right-6 opacity-30"><Hex size={40} stroke="#2dd4a8" strokeWidth={1} /></div>
+              <div className="absolute top-6 right-6 opacity-30"><Hex size={40} stroke="#0f7a5f" strokeWidth={1} /></div>
               <h3 className="font-display text-2xl">{t}</h3>
               <p className="text-muted mt-3 leading-relaxed">{d}</p>
             </div>
@@ -48,7 +48,7 @@ export default function About() {
           {team.map(([n, r, b]) => (
             <div key={n} className="card p-6">
               <div className="relative w-20 h-20 mx-auto">
-                <Hex size={80} stroke="#2dd4a8" strokeWidth={1.2} fill="#0f2620" />
+                <Hex size={80} stroke="#0f7a5f" strokeWidth={1.2} fill="#ffffff" />
                 <span className="absolute inset-0 grid place-items-center font-display text-2xl text-primary-glow">
                   {n[0]}
                 </span>

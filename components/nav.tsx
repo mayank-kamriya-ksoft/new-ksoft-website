@@ -16,7 +16,7 @@ export function Nav() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <span className="relative w-8 h-8 grid place-items-center">
-            <Hex size={32} stroke="#2dd4a8" fill="#0f2620" strokeWidth={1.5} />
+            <Hex size={32} stroke="#0f7a5f" fill="#ffffff" strokeWidth={1.5} />
             <span className="absolute font-display font-bold text-primary-glow text-sm">K</span>
           </span>
           <span className="font-display font-semibold tracking-tight">

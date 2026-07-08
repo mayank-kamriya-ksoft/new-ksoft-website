@@ -9,7 +9,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
             <span className="relative w-8 h-8 grid place-items-center">
-              <Hex size={32} stroke="#2dd4a8" fill="#0f2620" strokeWidth={1.5} />
+              <Hex size={32} stroke="#0f7a5f" fill="#ffffff" strokeWidth={1.5} />
               <span className="absolute font-display font-bold text-primary-glow text-sm">K</span>
             </span>
             <span className="font-display font-semibold">KSoft.Solution</span>

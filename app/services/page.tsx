@@ -22,7 +22,7 @@ export default function ServicesIndex() {
           {services.map((s, i) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="card p-8 group relative overflow-hidden flex flex-col">
               <div className="absolute -right-8 -bottom-8 opacity-30 group-hover:opacity-60 transition">
-                <Hex size={160} stroke="#2dd4a8" strokeWidth={1} />
+                <Hex size={160} stroke="#0f7a5f" strokeWidth={1} />
               </div>
               <div className="relative flex-1">
                 <div className="flex items-center justify-between">
