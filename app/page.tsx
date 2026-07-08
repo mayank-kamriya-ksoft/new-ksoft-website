@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Hex, HexCluster, HexGrid } from "@/components/hex";
+import { Hex, HexGrid } from "@/components/hex";
+import { HeroStack } from "@/components/product-visuals";
 import { ServiceIcon } from "@/components/icons";
 import { services, projects, posts } from "@/lib/content";
 import { Section } from "@/components/section";
@@ -44,8 +45,8 @@ export default function Home() {
                 ))}
               </dl>
             </div>
-            <div className="lg:col-span-5 h-[520px] hidden lg:block">
-              <HexCluster className="w-full h-full" />
+            <div className="lg:col-span-5 hidden lg:flex items-center justify-center min-h-[520px]">
+              <HeroStack className="w-full max-w-[520px]" />
             </div>
           </div>
         </div>
