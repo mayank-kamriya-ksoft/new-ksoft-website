@@ -20,7 +20,7 @@ export default function Blog() {
       <Section>
         <Link href={`/blog/${feat.slug}`} className="card p-8 md:p-12 block relative overflow-hidden group">
           <div className="absolute -top-16 -right-16 opacity-40 group-hover:opacity-70 transition">
-            <Hex size={320} stroke="#0f7a5f" strokeWidth={1} />
+            <Hex size={320} stroke="#0a7cff" strokeWidth={1} />
           </div>
           <div className="relative max-w-2xl">
             <div className="flex items-center gap-3 text-xs font-mono text-muted">

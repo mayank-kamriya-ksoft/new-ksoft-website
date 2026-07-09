@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 
   const html = `
     <div style="font-family:system-ui,sans-serif;color:#0e1a17;line-height:1.6">
-      <h2 style="color:#0f7a5f;margin:0 0 12px">New project inquiry — KSoft Solution</h2>
+      <h2 style="color:#0a7cff;margin:0 0 12px">New project inquiry — KSoft Solution</h2>
       <table style="border-collapse:collapse">
         <tr><td style="padding:6px 12px;color:#667069">Name</td><td style="padding:6px 12px"><strong>${esc(name)}</strong></td></tr>
         <tr><td style="padding:6px 12px;color:#667069">Company</td><td style="padding:6px 12px">${esc(company) || "—"}</td></tr>

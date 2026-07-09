@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Hex } from "./hex";
+import Image from "next/image";
+import logo from "@/components/assets/ksoft-logo.webp";
 import { services } from "@/lib/content";
 
 export function Footer() {
@@ -7,12 +8,16 @@ export function Footer() {
     <footer className="mt-32 border-t border-border/60 bg-surface/40">
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2">
-            <span className="relative w-8 h-8 grid place-items-center">
-              <Hex size={32} stroke="#0f7a5f" fill="#ffffff" strokeWidth={1.5} />
-              <span className="absolute font-display font-bold text-primary-glow text-sm">K</span>
+          <div className="flex items-center">
+            <span className="inline-flex items-center rounded-lg bg-deep px-3 py-1.5">
+              <Image
+                src={logo}
+                alt="KSoft Solution"
+                width={140}
+                height={28}
+                className="h-6 w-auto"
+              />
             </span>
-            <span className="font-display font-semibold">KSoft.Solution</span>
           </div>
           <p className="mt-4 text-muted max-w-md text-sm leading-relaxed">
             A software development studio building web apps, AI systems, mobile products

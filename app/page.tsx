@@ -77,10 +77,10 @@ export default function Home() {
               </div>
               <div className="relative w-40 h-40 shrink-0">
                 <div className="absolute inset-0 animate-spin-slow">
-                  <Hex size={160} stroke="#0f7a5f" strokeWidth={1.2} />
+                  <Hex size={160} stroke="#0a7cff" strokeWidth={1.2} />
                 </div>
                 <div className="absolute inset-4 animate-floaty">
-                  <Hex size={128} stroke="#16a37c" strokeWidth={1.5} fill="#ffffff" />
+                  <Hex size={128} stroke="#3b95ff" strokeWidth={1.5} fill="#ffffff" />
                 </div>
                 <div className="absolute inset-10 grid place-items-center font-mono text-xs text-primary-glow">
                   {`{ ship }`}
@@ -101,7 +101,7 @@ export default function Home() {
           {/* Growth wide */}
           <div className="card p-6 col-span-12 md:col-span-6 group flex items-center gap-6">
             <div className="relative w-24 h-24 shrink-0">
-              <Hex size={96} stroke="#0f7a5f" strokeWidth={1.3} fill="#ffffff" />
+              <Hex size={96} stroke="#0a7cff" strokeWidth={1.3} fill="#ffffff" />
               <span className="absolute inset-0 grid place-items-center text-primary-glow">
                 <ServiceIcon name={services[5].icon} className="w-8 h-8" />
               </span>
@@ -132,7 +132,7 @@ export default function Home() {
           ].map(([n, t, d]) => (
             <div key={n} className="card p-6 relative">
               <div className="absolute top-4 right-4 opacity-40">
-                <Hex size={44} stroke="#0f7a5f" strokeWidth={1} />
+                <Hex size={44} stroke="#0a7cff" strokeWidth={1} />
               </div>
               <div className="font-mono text-xs text-primary tracking-widest">{n}</div>
               <h3 className="font-display text-xl mt-3">{t}</h3>
@@ -149,7 +149,7 @@ export default function Home() {
             <Link key={p.slug} href="/portfolio" className={`card p-6 bg-gradient-to-br ${p.tint} block`}>
               <div className="flex items-center justify-between">
                 <span className="chip">{p.category}</span>
-                <Hex size={28} stroke="#16a37c" strokeWidth={1} />
+                <Hex size={28} stroke="#3b95ff" strokeWidth={1} />
               </div>
               <h3 className="font-display text-2xl mt-6">{p.name}</h3>
               <p className="text-muted text-sm mt-2">{p.summary}</p>
@@ -164,10 +164,10 @@ export default function Home() {
       <Section>
         <div className="card p-10 md:p-16 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 opacity-40">
-            <Hex size={320} stroke="#0f7a5f" strokeWidth={1} />
+            <Hex size={320} stroke="#0a7cff" strokeWidth={1} />
           </div>
           <div className="absolute -bottom-16 -left-16 opacity-30">
-            <Hex size={220} stroke="#16a37c" strokeWidth={1} />
+            <Hex size={220} stroke="#3b95ff" strokeWidth={1} />
           </div>
           <div className="relative max-w-2xl">
             <span className="chip">Q3 · 2026 booking</span>
@@ -209,7 +209,7 @@ function BentoTile({ service, className = "" }: { service: (typeof services)[num
   return (
     <Link href={`/services/${service.slug}`} className={`card p-6 group relative overflow-hidden ${className}`}>
       <div className="absolute -right-6 -bottom-6 opacity-40 group-hover:opacity-80 transition">
-        <Hex size={140} stroke="#0f7a5f" strokeWidth={1} />
+        <Hex size={140} stroke="#0a7cff" strokeWidth={1} />
       </div>
       <div className="relative">
         <div className="w-11 h-11 grid place-items-center rounded-xl bg-primary/10 text-primary-glow border border-border">

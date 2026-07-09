@@ -101,7 +101,7 @@ export function CodeWindow({ className = "" }: { className?: string }) {
     c === "kw"
       ? "text-[#a05fff]"
       : c === "str"
-      ? "text-[#0f7a5f]"
+      ? "text-[#0a7cff]"
       : c === "num"
       ? "text-[#c2410c]"
       : c === "fn"
@@ -194,8 +194,8 @@ export function DeployCard({ className = "" }: { className?: string }) {
       <svg viewBox="0 0 240 40" className="mt-3 w-full h-8">
         <defs>
           <linearGradient id="spark" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stopColor="#0f7a5f" stopOpacity="0.35" />
-            <stop offset="1" stopColor="#0f7a5f" stopOpacity="0" />
+            <stop offset="0" stopColor="#0a7cff" stopOpacity="0.35" />
+            <stop offset="1" stopColor="#0a7cff" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path
@@ -205,7 +205,7 @@ export function DeployCard({ className = "" }: { className?: string }) {
         <path
           d="M0 30 L30 22 L60 26 L90 14 L120 18 L150 8 L180 12 L210 5 L240 10"
           fill="none"
-          stroke="#0f7a5f"
+          stroke="#0a7cff"
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -223,7 +223,7 @@ export function TerminalCard({ className = "" }: { className?: string }) {
     <WindowChrome className={className} title="~/ksoft › zsh">
       <div className="p-4 font-mono text-[11.5px] leading-5 bg-[#0e1a17] text-[#c6e7d8]">
         <div>
-          <span className="text-[#16a37c]">➜</span>{" "}
+          <span className="text-[#3b95ff]">➜</span>{" "}
           <span className="text-[#7fd6b5]">ksoft</span> npm run ship
         </div>
         <div className="text-[#8aa89b]">▲ building routes … 24/24</div>
@@ -231,9 +231,9 @@ export function TerminalCard({ className = "" }: { className?: string }) {
         <div className="text-[#8aa89b]">☁ edge deploy · bom1 iad1</div>
         <div className="text-[#7fd6b5]">✔ live in 12.4s</div>
         <div>
-          <span className="text-[#16a37c]">➜</span>{" "}
+          <span className="text-[#3b95ff]">➜</span>{" "}
           <span className="text-[#7fd6b5]">ksoft</span>{" "}
-          <span className="inline-block w-1.5 h-3 align-[-2px] bg-[#16a37c] animate-pulse-glow" />
+          <span className="inline-block w-1.5 h-3 align-[-2px] bg-[#3b95ff] animate-pulse-glow" />
         </div>
       </div>
     </WindowChrome>

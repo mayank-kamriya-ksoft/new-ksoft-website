@@ -69,8 +69,8 @@ export function HexGrid({
     >
       <defs>
         <linearGradient id="hexg" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0" stopColor="#0f7a5f" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#16a37c" stopOpacity="0.05" />
+          <stop offset="0" stopColor="#0a7cff" stopOpacity="0.35" />
+          <stop offset="1" stopColor="#3b95ff" stopOpacity="0.05" />
         </linearGradient>
       </defs>
       {cells.map((c, i) => (
@@ -99,11 +99,11 @@ export function HexCluster({ className = "" }: { className?: string }) {
       <svg className="absolute inset-0 w-full h-full opacity-60" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
         <defs>
           <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
-            <circle cx="1.4" cy="1.4" r="1.1" fill="#0f7a5f" opacity="0.28" />
+            <circle cx="1.4" cy="1.4" r="1.1" fill="#0a7cff" opacity="0.28" />
           </pattern>
           <linearGradient id="arcg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#0f7a5f" />
-            <stop offset="1" stopColor="#16a37c" />
+            <stop offset="0" stopColor="#0a7cff" />
+            <stop offset="1" stopColor="#3b95ff" />
           </linearGradient>
         </defs>
         <rect width="400" height="400" fill="url(#dots)" />
@@ -111,27 +111,27 @@ export function HexCluster({ className = "" }: { className?: string }) {
 
       {/* dashed rotating ring */}
       <svg className="absolute inset-0 w-full h-full animate-spin-slow" viewBox="0 0 400 400">
-        <circle cx="200" cy="200" r="170" fill="none" stroke="#0f7a5f" strokeOpacity="0.45" strokeWidth="1" strokeDasharray="2 8" />
-        <circle cx="200" cy="200" r="140" fill="none" stroke="#16a37c" strokeOpacity="0.55" strokeWidth="1" strokeDasharray="1 6" />
+        <circle cx="200" cy="200" r="170" fill="none" stroke="#0a7cff" strokeOpacity="0.45" strokeWidth="1" strokeDasharray="2 8" />
+        <circle cx="200" cy="200" r="140" fill="none" stroke="#3b95ff" strokeOpacity="0.55" strokeWidth="1" strokeDasharray="1 6" />
       </svg>
 
       {/* concentric solid arc */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
         <path d="M 60 200 A 140 140 0 0 1 340 200" fill="none" stroke="url(#arcg)" strokeWidth="1.6" strokeLinecap="round" opacity="0.9" />
-        <path d="M 340 200 A 140 140 0 0 1 200 340" fill="none" stroke="#063f30" strokeWidth="1.2" strokeLinecap="round" opacity="0.55" />
+        <path d="M 340 200 A 140 140 0 0 1 200 340" fill="none" stroke="#0a2540" strokeWidth="1.2" strokeLinecap="round" opacity="0.55" />
       </svg>
 
       {/* floating triangle top-left */}
       <div className="absolute top-6 left-4 animate-floaty" style={{ animationDelay: "0.6s" }}>
         <svg width="86" height="86" viewBox="0 0 100 100">
-          <polygon points="50,10 90,85 10,85" fill="none" stroke="#0f7a5f" strokeWidth="1.4" strokeLinejoin="round" />
-          <polygon points="50,28 74,74 26,74" fill="#ffffff" stroke="#16a37c" strokeWidth="1" />
+          <polygon points="50,10 90,85 10,85" fill="none" stroke="#0a7cff" strokeWidth="1.4" strokeLinejoin="round" />
+          <polygon points="50,28 74,74 26,74" fill="#ffffff" stroke="#3b95ff" strokeWidth="1" />
         </svg>
       </div>
 
       {/* small hexagon top-right */}
       <div className="absolute -top-6 -right-6 animate-floaty">
-        <Hex size={110} stroke="#0f7a5f" strokeWidth={1.4} />
+        <Hex size={110} stroke="#0a7cff" strokeWidth={1.4} />
       </div>
 
       {/* square rotated bottom-left */}
@@ -142,16 +142,16 @@ export function HexCluster({ className = "" }: { className?: string }) {
       {/* filled circle bottom-right */}
       <div className="absolute bottom-6 right-8 animate-floaty" style={{ animationDelay: "1.2s" }}>
         <svg width="72" height="72" viewBox="0 0 72 72">
-          <circle cx="36" cy="36" r="32" fill="none" stroke="#0f7a5f" strokeWidth="1.4" />
-          <circle cx="36" cy="36" r="18" fill="#16a37c" opacity="0.18" />
-          <circle cx="36" cy="36" r="6" fill="#0f7a5f" />
+          <circle cx="36" cy="36" r="32" fill="none" stroke="#0a7cff" strokeWidth="1.4" />
+          <circle cx="36" cy="36" r="18" fill="#3b95ff" opacity="0.18" />
+          <circle cx="36" cy="36" r="6" fill="#0a7cff" />
         </svg>
       </div>
 
       {/* plus mark, mid-left */}
       <div className="absolute top-1/2 left-8 -translate-y-1/2 opacity-70">
         <svg width="22" height="22" viewBox="0 0 22 22">
-          <path d="M11 2v18M2 11h18" stroke="#0f7a5f" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M11 2v18M2 11h18" stroke="#0a7cff" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       </div>
 
@@ -164,7 +164,7 @@ export function HexCluster({ className = "" }: { className?: string }) {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative">
           <div className="absolute inset-0 -m-6 rounded-full bg-[conic-gradient(from_180deg,transparent,color-mix(in_oklab,var(--primary)_22%,transparent),transparent)] blur-2xl animate-pulse-glow" />
-          <Hex size={230} stroke="#0f7a5f" strokeWidth={1.4} className="relative" />
+          <Hex size={230} stroke="#0a7cff" strokeWidth={1.4} className="relative" />
           <div className="absolute inset-0 grid place-items-center">
             <div className="text-center">
               <div className="font-mono text-[10px] text-forest/70 tracking-[0.35em]">// K.SOFT</div>

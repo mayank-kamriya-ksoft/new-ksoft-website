@@ -22,7 +22,7 @@ export default function Portfolio() {
           {projects.map((p, i) => (
             <article key={p.slug} className={`card p-8 col-span-12 ${spanClass[p.span]} bg-gradient-to-br ${p.tint} relative overflow-hidden group min-h-[280px] flex flex-col justify-between`}>
               <div className="absolute -top-8 -right-8 opacity-30 group-hover:opacity-60 transition">
-                <Hex size={p.span === "lg" ? 200 : 140} stroke="#0f7a5f" strokeWidth={1} />
+                <Hex size={p.span === "lg" ? 200 : 140} stroke="#0a7cff" strokeWidth={1} />
               </div>
               <div className="relative">
                 <div className="flex items-center justify-between">

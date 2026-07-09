@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Hex } from "./hex";
+import Image from "next/image";
+import logo from "@/components/assets/ksoft-logo.webp";
 
 const links = [
   { href: "/", label: "Home" },
@@ -14,13 +15,16 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/60 border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="relative w-8 h-8 grid place-items-center">
-            <Hex size={32} stroke="#0f7a5f" fill="#ffffff" strokeWidth={1.5} />
-            <span className="absolute font-display font-bold text-primary-glow text-sm">K</span>
-          </span>
-          <span className="font-display font-semibold tracking-tight">
-            KSoft<span className="text-primary">.</span>Solution
+        <Link href="/" className="flex items-center group">
+          <span className="inline-flex items-center rounded-lg bg-deep px-3 py-1.5">
+            <Image
+              src={logo}
+              alt="KSoft Solution"
+              width={140}
+              height={28}
+              priority
+              className="h-6 w-auto"
+            />
           </span>
         </Link>
         <nav className="hidden md:flex items-center gap-1">

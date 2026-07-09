@@ -43,7 +43,7 @@ function InfoCard({ label, title }: { label: string; title: React.ReactNode }) {
   return (
     <div className="card p-6">
       <div className="flex items-center gap-3">
-        <Hex size={40} stroke="#0f7a5f" fill="#ffffff" strokeWidth={1.4} />
+        <Hex size={40} stroke="#0a7cff" fill="#ffffff" strokeWidth={1.4} />
         <div className="text-xs font-mono uppercase tracking-widest text-forest">{label}</div>
       </div>
       <div className="font-display text-xl mt-3 text-foreground">{title}</div>

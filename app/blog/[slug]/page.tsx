@@ -29,7 +29,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="absolute inset-0 grid-lines opacity-25" />
         <div className="absolute -top-24 -right-24 opacity-30">
-          <Hex size={400} stroke="#0f7a5f" strokeWidth={1} />
+          <Hex size={400} stroke="#0a7cff" strokeWidth={1} />
         </div>
         <div className="max-w-4xl mx-auto px-6 pt-24 pb-16 relative">
           <Link href="/blog" className="text-sm font-mono text-muted hover:text-primary-glow">← Journal</Link>

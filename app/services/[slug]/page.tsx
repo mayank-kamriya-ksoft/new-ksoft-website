@@ -31,7 +31,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="absolute inset-0 grid-lines opacity-25" />
         <div className="absolute -top-24 -right-24 animate-spin-slow opacity-30">
-          <Hex size={480} stroke="#0f7a5f" strokeWidth={1} />
+          <Hex size={480} stroke="#0a7cff" strokeWidth={1} />
         </div>
         <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
           <Link href="/services" className="text-sm font-mono text-muted hover:text-primary-glow">← All services</Link>
@@ -43,7 +43,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
               <div className="relative w-40 h-40">
-                <Hex size={160} stroke="#0f7a5f" strokeWidth={1.4} fill="#ffffff" />
+                <Hex size={160} stroke="#0a7cff" strokeWidth={1.4} fill="#ffffff" />
                 <div className="absolute inset-0 grid place-items-center text-primary-glow">
                   <ServiceIcon name={s.icon} className="w-14 h-14" />
                 </div>
