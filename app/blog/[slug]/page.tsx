@@ -11,10 +11,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
+  const url = `/blog/${slug}`;
   return {
     title: post.title,
     description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, type: "article" },
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      url,
+      publishedTime: post.date,
+    },
+    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt },
   };
 }
 
@@ -23,9 +32,37 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
   const others = posts.filter((p) => p.slug !== slug).slice(0, 3);
+  const canonical = `https://www.ksoftsolution.com/blog/${slug}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${canonical}#article`,
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: "KSoft Solution" },
+    publisher: { "@id": "https://www.ksoftsolution.com/#organization" },
+    mainEntityOfPage: canonical,
+    articleSection: post.category,
+    inLanguage: "en",
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ksoftsolution.com/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.ksoftsolution.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonical },
+    ],
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="absolute inset-0 grid-lines opacity-25" />
         <div className="absolute -top-24 -right-24 opacity-30">

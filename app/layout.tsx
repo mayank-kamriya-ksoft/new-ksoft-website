@@ -17,18 +17,20 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ksoftsolution.com"),
+  metadataBase: new URL("https://www.ksoftsolution.com"),
   title: {
-    default: "KSoft Solution — Software Development, AI & SEO in Chhatrapati Sambhaji Nagar",
+    default: "KSoft Solution | Web Development & SEO Agency in Chhatrapati Sambhaji Nagar",
     template: "%s · KSoft Solution",
   },
   description:
-    "KSoft Solution is a software development firm building web apps, AI integrations, mobile products and SEO systems for founders and growing businesses.",
+    "KSoft Solution — a Chhatrapati Sambhaji Nagar (Aurangabad) software agency building Next.js web apps, AI integrations, mobile products and SEO/GEO growth systems.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    title: "KSoft Solution — Engineering the digital edge",
+    url: "https://www.ksoftsolution.com/",
+    title: "KSoft Solution — Software, AI & SEO Agency in Chhatrapati Sambhaji Nagar",
     description:
-      "We design, build and scale software: web apps, AI, mobile, and SEO growth engines.",
+      "We design, build and scale software: web apps, AI, mobile, and SEO/GEO growth engines from Chhatrapati Sambhaji Nagar (Aurangabad), India.",
     siteName: "KSoft Solution",
   },
   twitter: {
@@ -37,6 +39,41 @@ export const metadata: Metadata = {
     description:
       "Software, AI, and growth engineering for the next generation of businesses.",
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.ksoftsolution.com/#organization",
+  name: "KSoft Solution",
+  url: "https://www.ksoftsolution.com",
+  logo: "https://www.ksoftsolution.com/icon.png",
+  description:
+    "Software development, AI integration, mobile apps, SEO/GEO and digital marketing agency based in Chhatrapati Sambhaji Nagar (Aurangabad), Maharashtra, India.",
+  telephone: "+91-976-541-2319",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "T-16, STPI, Chikhalthana MIDC",
+    addressLocality: "Chhatrapati Sambhaji Nagar",
+    addressRegion: "Maharashtra",
+    postalCode: "431008",
+    addressCountry: "IN",
+  },
+  areaServed: ["Chhatrapati Sambhaji Nagar", "Aurangabad", "Marathwada", "Maharashtra", "India"],
+  sameAs: [
+    "https://www.facebook.com/ksoftsolutionaurangabad/",
+    "https://twitter.com/ksoftsolution",
+    "https://www.instagram.com/ksoftsolution/",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.ksoftsolution.com/#website",
+  url: "https://www.ksoftsolution.com",
+  name: "KSoft Solution",
+  publisher: { "@id": "https://www.ksoftsolution.com/#organization" },
 };
 
 export default function RootLayout({
@@ -48,6 +85,14 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

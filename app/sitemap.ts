@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { services, posts } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ksoftsolution.com";
+  const baseUrl = "https://www.ksoftsolution.com";
   const currentDate = new Date().toISOString().split("T")[0];
 
   const mainPages = [

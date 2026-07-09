@@ -4,8 +4,15 @@ import { Hex } from "@/components/hex";
 import { posts } from "@/lib/content";
 
 export const metadata = {
-  title: "Journal — SEO, AI and engineering essays",
-  description: "Essays and field notes on modern software, SEO, AEO/GEO and AI integration from the KSoft Solution team.",
+  title: "Journal — SEO, AI & Engineering Essays from KSoft Solution",
+  description: "Essays and field notes on modern software, SEO, AEO/GEO and AI integration from the KSoft Solution team in Chhatrapati Sambhaji Nagar.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "KSoft Solution Journal",
+    description: "Essays on software craft, SEO, AEO/GEO and AI integration.",
+    url: "/blog",
+    type: "website",
+  },
 };
 
 export default function Blog() {
