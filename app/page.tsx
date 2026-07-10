@@ -10,51 +10,54 @@ export default function Home() {
       {/* HERO — centered editorial */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-lines opacity-40 pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 relative">
-          <div className="flex flex-col items-center text-center animate-fade-up">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color-mix(in_oklab,var(--primary)_6%,transparent)] border border-[color-mix(in_oklab,var(--primary)_18%,transparent)] text-primary text-xs font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-glow opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-glow" />
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-20 relative">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            {/* LEFT — copy */}
+            <div className="animate-fade-up">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color-mix(in_oklab,var(--primary)_6%,transparent)] border border-[color-mix(in_oklab,var(--primary)_18%,transparent)] text-primary text-xs font-medium">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-glow opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-glow" />
+                </span>
+                Available for Q4 · 2026 engagements
               </span>
-              Available for Q4 · 2026 engagements
-            </span>
-            <h1 className="mt-6 font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight max-w-4xl">
-              We build <span className="text-primary">products</span>,
-              <br /> not just features.
-            </h1>
-            <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed">
-              KSoft Solution is a boutique engineering studio out of Chhatrapati
-              Sambhaji Nagar, crafting high-performance web, AI and mobile products
-              for teams worldwide.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link href="/contact" className="px-7 py-3.5 rounded-lg bg-foreground text-white font-semibold shadow-lg shadow-foreground/10 hover:bg-primary transition-colors">
-                Start a project
-              </Link>
-              <Link href="/portfolio" className="px-7 py-3.5 rounded-lg bg-surface border border-border font-semibold hover:border-primary transition-colors">
-                View our work
-              </Link>
+              <h1 className="mt-6 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
+                We build <span className="text-primary">products</span>,
+                <br /> not just features.
+              </h1>
+              <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed">
+                KSoft Solution is a boutique engineering studio out of Chhatrapati
+                Sambhaji Nagar, crafting high-performance web, AI and mobile products
+                for teams worldwide.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <Link href="/contact" className="px-7 py-3.5 rounded-lg bg-foreground text-white font-semibold shadow-lg shadow-foreground/10 hover:bg-primary transition-colors">
+                  Start a project →
+                </Link>
+                <Link href="/portfolio" className="px-7 py-3.5 rounded-lg bg-surface border border-border font-semibold hover:border-primary transition-colors">
+                  See our work
+                </Link>
+              </div>
+
+              {/* Stats */}
+              <dl className="mt-14 grid grid-cols-3 gap-6 md:gap-10 max-w-lg">
+                {[
+                  ["120+", "Products shipped"],
+                  ["9 yrs", "Compounding craft"],
+                  ["24/7", "On-call support"],
+                ].map(([v, l]) => (
+                  <div key={l}>
+                    <dt className="font-display font-bold text-3xl md:text-4xl text-foreground">{v}</dt>
+                    <dd className="mt-1 font-mono text-[10px] uppercase tracking-widest text-muted">{l}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
-            {/* Stats */}
-            <dl className="mt-16 grid grid-cols-3 gap-10 md:gap-16">
-              {[
-                ["120+", "Products shipped"],
-                ["9 yrs", "Compounding craft"],
-                ["24/7", "On-call support"],
-              ].map(([v, l]) => (
-                <div key={l} className="text-center">
-                  <dt className="font-display font-bold text-3xl md:text-4xl text-foreground">{v}</dt>
-                  <dd className="mt-1 font-mono text-[10px] uppercase tracking-widest text-muted">{l}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          {/* Hero product artifact */}
-          <div className="mt-20 hidden md:flex justify-center animate-fade-up" style={{ animationDelay: "0.15s" }}>
-            <HeroStack className="w-full max-w-[820px]" />
+            {/* RIGHT — hero product artifact */}
+            <div className="hidden lg:flex justify-end animate-fade-up" style={{ animationDelay: "0.15s" }}>
+              <HeroStack className="w-full max-w-[640px]" />
+            </div>
           </div>
         </div>
       </section>
