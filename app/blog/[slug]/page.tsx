@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { posts } from "@/lib/content";
-import { Hex } from "@/components/hex";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -63,19 +62,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <section className="relative overflow-hidden border-b border-border/60">
-        <div className="absolute inset-0 grid-lines opacity-25" />
-        <div className="absolute -top-24 -right-24 opacity-30">
-          <Hex size={400} stroke="#0a7cff" strokeWidth={1} />
-        </div>
-        <div className="max-w-4xl mx-auto px-6 pt-24 pb-16 relative">
-          <Link href="/blog" className="text-sm font-mono text-muted hover:text-primary-glow">← Journal</Link>
-          <div className="mt-6 flex items-center gap-3 text-xs font-mono text-muted">
-            <span className="chip">{post.category}</span>
-            <span>{post.date} · {post.readTime}</span>
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 grid-lines opacity-40 pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 pt-24 pb-16 relative animate-fade-up">
+          <Link href="/blog" className="text-xs font-mono uppercase tracking-widest text-muted hover:text-primary transition-colors">← Journal</Link>
+          <div className="mt-8 flex items-center gap-3 text-[10px] font-mono uppercase tracking-widest">
+            <span className="px-2.5 py-1 rounded-full bg-primary/5 border border-primary/20 text-primary">{post.category}</span>
+            <span className="text-muted">{post.date} · {post.readTime}</span>
           </div>
-          <h1 className="mt-5 font-display text-4xl md:text-6xl leading-[1.02] tracking-tight">{post.title}</h1>
-          <p className="mt-6 text-lg text-muted">{post.excerpt}</p>
+          <h1 className="mt-6 font-display font-bold text-4xl md:text-6xl leading-[1.02] tracking-tight">{post.title}</h1>
+          <p className="mt-6 text-lg text-muted leading-relaxed">{post.excerpt}</p>
         </div>
       </section>
 
@@ -85,13 +81,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <p>Every essay here is grounded in work we&apos;ve done for real clients. If the piece resonates, we&apos;re probably a fit — <Link href="/contact">let&apos;s talk</Link>.</p>
       </article>
 
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <div className="text-xs font-mono uppercase tracking-widest text-primary-glow mb-5">Keep reading</div>
-        <div className="grid md:grid-cols-3 gap-5">
+      <section className="max-w-6xl mx-auto px-6 pb-24">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mb-6">// keep reading</div>
+        <div className="grid md:grid-cols-3 gap-4">
           {others.map((p) => (
-            <Link key={p.slug} href={`/blog/${p.slug}`} className="card p-6 block">
-              <div className="text-xs font-mono text-muted">{p.category.toUpperCase()} · {p.readTime}</div>
-              <h3 className="font-display text-lg mt-3 leading-snug">{p.title}</h3>
+            <Link key={p.slug} href={`/blog/${p.slug}`} className="rounded-3xl bg-surface border border-border p-6 hover:border-primary/40 transition-colors group block">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-muted"><span className="text-primary">{p.category}</span> · {p.readTime}</div>
+              <h3 className="mt-4 font-display font-bold text-lg leading-snug">{p.title}</h3>
+              <span className="mt-4 inline-flex text-primary text-sm transition-transform group-hover:translate-x-1">→</span>
             </Link>
           ))}
         </div>

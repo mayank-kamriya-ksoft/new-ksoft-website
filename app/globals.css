@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f7fb;
+  /* Cobalt Precision */
+  --background: #F7F8FA;
   --surface: #ffffff;
-  --surface-2: #eaf1fa;
-  --border: #d5e2f0;
-  --foreground: #0a1930;
-  --muted: #56688a;
-  --primary: #0a7cff;
-  --primary-glow: #3b95ff;
-  --forest: #0a2540;
-  --deep: #061530;
-  --ink: #0a1930;
+  --surface-2: #EEF1F6;
+  --border: #E4E8EF;
+  --foreground: #0B1220;
+  --muted: #5B6577;
+  --primary: #1E40AF;
+  --primary-glow: #22D3EE;
+  --forest: #0B1220;
+  --deep: #05070E;
+  --ink: #0B1220;
 }
 
 @theme inline {
@@ -43,9 +44,8 @@ html, body {
 
 body {
   background-image:
-    radial-gradient(1200px 700px at 88% -10%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 62%),
-    radial-gradient(900px 500px at -10% 15%, color-mix(in oklab, var(--forest) 14%, transparent), transparent 60%),
-    radial-gradient(600px 400px at 50% 110%, color-mix(in oklab, var(--primary) 8%, transparent), transparent 60%);
+    radial-gradient(1000px 600px at 92% -8%, color-mix(in oklab, var(--primary) 10%, transparent), transparent 62%),
+    radial-gradient(700px 420px at -8% 8%, color-mix(in oklab, var(--primary-glow) 12%, transparent), transparent 60%);
   background-attachment: fixed;
   overflow-x: hidden;
 }
@@ -73,7 +73,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(120deg, var(--forest), var(--primary) 55%, #14b892);
+  background: linear-gradient(120deg, var(--primary) 0%, var(--primary-glow) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

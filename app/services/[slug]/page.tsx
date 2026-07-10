@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { services } from "@/lib/content";
 import { ServiceIcon } from "@/components/icons";
-import { Hex } from "@/components/hex";
 import { Section } from "@/components/section";
 
 export function generateStaticParams() {
@@ -176,25 +175,22 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
 
-      <section className="relative overflow-hidden border-b border-border/60">
-        <div className="absolute inset-0 grid-lines opacity-25" />
-        <div className="absolute -top-24 -right-24 animate-spin-slow opacity-30">
-          <Hex size={480} stroke="#0a7cff" strokeWidth={1} />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
-          <Link href="/services" className="text-sm font-mono text-muted hover:text-primary-glow">← All services</Link>
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 grid-lines opacity-40 pointer-events-none" />
+        <div className="max-w-6xl mx-auto px-6 pt-24 pb-20 relative animate-fade-up">
+          <Link href="/services" className="text-xs font-mono uppercase tracking-widest text-muted hover:text-primary transition-colors">← All services</Link>
           <div className="mt-8 grid lg:grid-cols-12 gap-10 items-end">
             <div className="lg:col-span-8 min-w-0">
-              <span className="chip">Service</span>
-              <h1 className="mt-5 font-display text-4xl md:text-6xl leading-[0.95] tracking-tight break-words">{seo?.h1 ?? s.title}</h1>
-              <p className="mt-5 text-xl text-muted max-w-2xl">{s.tagline}</p>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color-mix(in_oklab,var(--primary)_6%,transparent)] border border-[color-mix(in_oklab,var(--primary)_18%,transparent)] text-primary text-xs font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary-glow animate-pulse-glow" />
+                Service · 0{services.findIndex((x) => x.slug === s.slug) + 1}
+              </span>
+              <h1 className="mt-6 font-display font-bold text-4xl md:text-6xl leading-[0.95] tracking-tight break-words">{seo?.h1 ?? s.title}</h1>
+              <p className="mt-6 text-xl text-muted max-w-2xl leading-relaxed">{s.tagline}</p>
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
-              <div className="relative w-40 h-40">
-                <Hex size={160} stroke="#0a7cff" strokeWidth={1.4} fill="#ffffff" />
-                <div className="absolute inset-0 grid place-items-center text-primary-glow">
-                  <ServiceIcon name={s.icon} className="w-14 h-14" />
-                </div>
+              <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-primary to-primary-glow grid place-items-center text-white shadow-lg shadow-primary/20">
+                <ServiceIcon name={s.icon} className="w-10 h-10" />
               </div>
             </div>
           </div>
@@ -211,50 +207,57 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <h3>Deliverables</h3>
             <ul>{s.deliverables.map((d) => <li key={d}>{d}</li>)}</ul>
           </div>
-          <aside className="lg:col-span-5 space-y-5">
-            <div className="card p-6">
-              <div className="text-xs font-mono uppercase tracking-widest text-primary-glow">Typical stack</div>
+          <aside className="lg:col-span-5 space-y-4">
+            <div className="rounded-3xl bg-surface border border-border p-6">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-primary">// typical stack</div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {s.stack.map((t) => (
-                  <span key={t} className="px-3 py-1.5 rounded-full border border-border text-sm text-foreground/80 bg-background/60">{t}</span>
+                  <span key={t} className="px-3 py-1.5 rounded-lg border border-border bg-surface-2 text-xs font-mono text-foreground/80">{t}</span>
                 ))}
               </div>
             </div>
-            <div className="card p-6">
-              <div className="text-xs font-mono uppercase tracking-widest text-primary-glow">Engagement</div>
+            <div className="rounded-3xl bg-surface border border-border p-6">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-primary">// engagement</div>
               <ul className="mt-4 space-y-3 text-sm">
                 <Row k="Timeline" v="4–12 weeks" />
                 <Row k="Team" v="2–4 senior specialists" />
                 <Row k="Pricing" v="Fixed-scope or retainer" />
               </ul>
             </div>
-            <Link href="/contact" className="btn-primary w-full justify-center">Start a project →</Link>
+            <Link href="/contact" className="w-full inline-flex justify-center px-7 py-3.5 rounded-lg bg-foreground text-white font-semibold hover:bg-primary transition-colors">
+              Start a project →
+            </Link>
           </aside>
         </div>
       </Section>
 
       {seo?.faqs?.length ? (
-        <Section eyebrow="FAQ" title="Frequently asked questions">
-          <div className="grid gap-4">
-            {seo.faqs.map((f) => (
-              <article key={f.q} className="card p-6">
-                <h3 className="font-display text-lg leading-snug">{f.q}</h3>
-                <p className="mt-3 text-muted leading-relaxed">{f.a}</p>
+        <Section eyebrow="faq" title="Frequently asked questions">
+          <div className="grid gap-3">
+            {seo.faqs.map((f, i) => (
+              <article key={f.q} className="rounded-2xl bg-surface border border-border p-6 hover:border-primary/40 transition-colors">
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-[11px] text-primary mt-1 tracking-widest">Q{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="font-display font-bold text-lg leading-snug">{f.q}</h3>
+                    <p className="mt-3 text-muted leading-relaxed">{f.a}</p>
+                  </div>
+                </div>
               </article>
             ))}
           </div>
         </Section>
       ) : null}
 
-      <Section eyebrow="Related" title="Pairs well with">
-        <div className="grid md:grid-cols-3 gap-5">
+      <Section eyebrow="related" title="Pairs well with">
+        <div className="grid md:grid-cols-3 gap-4">
           {others.map((o) => (
-            <Link key={o.slug} href={`/services/${o.slug}`} className="card p-6 block">
-              <div className="w-11 h-11 grid place-items-center rounded-xl bg-primary/10 text-primary-glow border border-border">
+            <Link key={o.slug} href={`/services/${o.slug}`} className="rounded-3xl bg-surface border border-border p-6 hover:border-primary/40 transition-colors group block">
+              <div className="w-11 h-11 grid place-items-center rounded-xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <ServiceIcon name={o.icon} />
               </div>
-              <h3 className="font-display text-lg mt-4">{o.title}</h3>
-              <p className="text-muted text-sm mt-1">{o.tagline}</p>
+              <h3 className="mt-5 font-display font-bold text-lg">{o.title}</h3>
+              <p className="mt-1 text-muted text-sm">{o.tagline}</p>
             </Link>
           ))}
         </div>
@@ -265,9 +268,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
 function Row({ k, v }: { k: string; v: string }) {
   return (
-    <li className="flex items-center justify-between border-b border-border/60 pb-2">
-      <span className="text-muted">{k}</span>
-      <span className="text-foreground">{v}</span>
+    <li className="flex items-center justify-between border-b border-border pb-3 last:border-0 last:pb-0">
+      <span className="text-muted text-xs font-mono uppercase tracking-widest">{k}</span>
+      <span className="text-foreground font-medium">{v}</span>
     </li>
   );
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PageHeader, Section } from "@/components/section";
-import { Hex } from "@/components/hex";
 import { ServiceIcon } from "@/components/icons";
 import { services } from "@/lib/content";
 
@@ -13,30 +12,53 @@ export default function ServicesIndex() {
   return (
     <>
       <PageHeader
-        eyebrow="Services"
+        eyebrow="Services · composable practice"
         title="Composable services. One senior team."
         intro="Eight practice areas. Mix and match, or hand us the whole product — either way, no handoffs, no juniors, no surprises."
+        meta={`${services.length} practice areas · zero-handoff pod`}
       />
       <Section>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="card p-8 group relative overflow-hidden flex flex-col">
-              <div className="absolute -right-8 -bottom-8 opacity-30 group-hover:opacity-60 transition">
-                <Hex size={160} stroke="#0a7cff" strokeWidth={1} />
-              </div>
-              <div className="relative flex-1">
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 grid place-items-center rounded-xl bg-primary/10 text-primary-glow border border-border">
-                    <ServiceIcon name={s.icon} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((s, i) => {
+            const isFeatured = i === 0;
+            return (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className={`rounded-3xl p-8 group relative overflow-hidden flex flex-col border transition-colors ${
+                  isFeatured
+                    ? "bg-foreground text-white border-transparent md:col-span-2 lg:col-span-1 hover:border-primary-glow/40"
+                    : "bg-surface border-border hover:border-primary/40"
+                }`}
+              >
+                {isFeatured && (
+                  <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-primary/30 blur-3xl pointer-events-none" />
+                )}
+                <div className="relative flex-1">
+                  <div className="flex items-center justify-between">
+                    <div
+                      className={`w-11 h-11 grid place-items-center rounded-xl transition-colors ${
+                        isFeatured
+                          ? "bg-white/10 text-primary-glow"
+                          : "bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white"
+                      }`}
+                    >
+                      <ServiceIcon name={s.icon} />
+                    </div>
+                    <span className={`font-mono text-[10px] uppercase tracking-widest ${isFeatured ? "text-white/40" : "text-muted"}`}>
+                      0{i + 1}
+                    </span>
                   </div>
-                  <span className="font-mono text-xs text-muted">0{i + 1}</span>
+                  <h3 className="mt-6 font-display font-bold text-2xl leading-tight">{s.title}</h3>
+                  <p className={`mt-2 text-sm ${isFeatured ? "text-white/70" : "text-muted"}`}>{s.tagline}</p>
                 </div>
-                <h3 className="font-display text-2xl mt-6">{s.title}</h3>
-                <p className="text-muted text-sm mt-2">{s.tagline}</p>
-              </div>
-              <div className="relative mt-8 text-primary-glow font-mono text-sm">Explore →</div>
-            </Link>
-          ))}
+                <div className={`relative mt-8 pt-5 border-t flex items-center justify-between ${isFeatured ? "border-white/10" : "border-border"}`}>
+                  <span className={`font-mono text-xs ${isFeatured ? "text-primary-glow" : "text-primary"}`}>Explore</span>
+                  <span className={`text-sm transition-transform group-hover:translate-x-1 ${isFeatured ? "text-primary-glow" : "text-primary"}`}>→</span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </Section>
     </>
